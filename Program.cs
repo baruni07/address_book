@@ -1,36 +1,47 @@
+﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.IO;
 
-namespace Address_book
+namespace FileOperations
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to address system management");          
-            addressBook adrs_book_1 = new addressBook();
+            //fileIO.fileExist();
+            //BinaryOprtn.binarySerialization();
+            //BinaryOprtn.binaryDeserialization();
+            //BinaryOprtn.JSONserialization();
+            //BinaryOprtn.JSONdeserialization();
+            FileIO.binarySerialization();
+            FileIO.binaryDeserialization();
+        }
+    }
 
-            adrs_book_1.addContact();
-            Console.WriteLine("-----------------------------");
-            adrs_book_1.addContact();
-            adrs_book_1.displayAddressBook();
-
-            addressBook adrs_book_2 = new addressBook();
-
-            adrs_book_2.addContact();
-            Console.WriteLine("-----------------------------");
-            adrs_book_2.addContact();
-            adrs_book_2.displayAddressBook();
-
-            addressSystem adrs_system = new addressSystem();
-            adrs_system.addAddressBook("address_book1", adrs_book_1);
-            adrs_system.addAddressBook("address_book2", adrs_book_2);
-
-            adrs_system.displayAddressSystem();
-
-            adrs_system.searchPerson("chennai");
-            adrs_system.countPerson("chennai", null);
-            adrs_system.countPerson("", "tn");
-
+    class fileIO
+    {
+        public static bool fileExist()
+        {
+            string path = @"C:\Users\223090003\Desktop\C#_bridgelabz\Trial1\FileOperations\sample1.txt";
+            if (File.Exists(path))
+            {
+                Console.WriteLine("File Exists");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("File doesnt exist");
+                return false;
+            }
+        }
+        public static void readLines()
+        {
+            string path = @"C:\Users\223090003\Desktop\C#_bridgelabz\Trial1\FileOperations\sample1.txt";
+            if(File.Exists(path))
+            {
+                string res = File.ReadAllText(path);
+                Console.WriteLine(res);
+            }
         }
     }
 }
