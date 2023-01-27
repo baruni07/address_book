@@ -1,0 +1,3 @@
+﻿Hello.
+Thus is sample file
+to understanf IO operations.
